@@ -6,7 +6,40 @@ fetch(url).then((response) => {
   return response.json();
 }).catch((err) => alert("I have no idea what's going on!!!"))
 .then((movies) => {
-  movies.results.map(movie => {
-    console.log(movie.title, movie.overview)
-  })
+ movieCard =  movies.results.map(movie => {
+    return movie;
+  });
+ 
+  movieCard.forEach(movie => {
+    console.log(movie)
+    
+    let moviediv = document.createElement('div');
+    moviediv.classList.add('movie-container');
+    
+    let img = document.createElement('img');
+
+    // get the film title 
+    let title = document.createElement('h1');
+    let movieTitle = document.createTextNode(movie.title);
+    title.classList.add('movie-title')
+    title.appendChild(movieTitle);
+    moviediv.appendChild(title);
+
+    // get the film summary 
+    let movieSummary = document.createTextNode(movie.overview);
+    let summary = document.createElement('p');
+    summary.classList.add('movie-summary');
+    summary.appendChild(movieSummary);
+    moviediv.appendChild(summary);
+
+    
+
+
+
+    document.querySelector('.container').appendChild(moviediv);
+  });
+
+
+
+  
 })
