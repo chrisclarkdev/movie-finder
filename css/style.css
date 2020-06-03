@@ -1,3 +1,7 @@
+* {
+  font-family: 'Roboto', sans-serif;
+}
+
 .container{
   display: grid;
   grid-template-columns: repeat(1, 300px );
