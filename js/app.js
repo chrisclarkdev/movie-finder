@@ -12,18 +12,21 @@ fetch(url).then((response) => {
  
   movieCard.forEach(movie => {
     console.log(movie)
-    
+    const imgurl = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
     let moviediv = document.createElement('div');
     moviediv.classList.add('movie-container');
-    
-    let img = document.createElement('img');
-
     // get the film title 
     let title = document.createElement('h1');
     let movieTitle = document.createTextNode(movie.title);
     title.classList.add('movie-title')
     title.appendChild(movieTitle);
     moviediv.appendChild(title);
+
+    //  add image to the card 
+    let img = document.createElement('img');
+    img.classList.add('poster');
+    img.src = imgurl;
+    moviediv.appendChild(img);
 
     // get the film summary 
     let movieSummary = document.createTextNode(movie.overview);
@@ -32,7 +35,9 @@ fetch(url).then((response) => {
     summary.appendChild(movieSummary);
     moviediv.appendChild(summary);
 
-    
+
+
+
 
 
 
