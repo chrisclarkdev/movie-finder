@@ -12,13 +12,13 @@ fetch(`https://api.themoviedb.org/3/search/movie?api_key=a876e7500012d962d40cf6b
     return movie;
   });
 
- 
-  //  console.log(movie)
-  // if (movieSearch === " "){
-  //   location.reload(false) 
-  // } else {
-  //   location.reload(true);
-  // }
+ document.getElementById("movie-search").onfocus = function() {myFunction()};
+
+  function myFunction() {
+    document.getElementById("movie-search").style.textAlign = "center";
+    location.reload();
+}
+
  console.log(" ")
   movieCard.forEach(movie => {
     console.log(movie)
@@ -47,7 +47,5 @@ fetch(`https://api.themoviedb.org/3/search/movie?api_key=a876e7500012d962d40cf6b
     document.querySelector('.container').appendChild(moviediv);
   });
 
-
 })
-
 }
