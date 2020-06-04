@@ -1,15 +1,25 @@
-const url = "https://api.themoviedb.org/3/search/movie?api_key=a876e7500012d962d40cf6ba7bd19019&language=en-US&query=batman&page=1&include_adult=false"
+
 
 // testing github
-
-fetch(url).then((response) => {
+function getMovies(){
+  let movieSearch = document.querySelector('#movie-search').value;
+  console.log(movieSearch);
+fetch(`https://api.themoviedb.org/3/search/movie?api_key=a876e7500012d962d40cf6ba7bd19019&language=en-US&query=${movieSearch}&page=1&include_adult=false`).then((response) => {
   return response.json();
 }).catch((err) => alert("I have no idea what's going on!!!"))
 .then((movies) => {
  movieCard =  movies.results.map(movie => {
     return movie;
   });
+
  
+  //  console.log(movie)
+  // if (movieSearch === " "){
+  //   location.reload(false) 
+  // } else {
+  //   location.reload(true);
+  // }
+ console.log(" ")
   movieCard.forEach(movie => {
     console.log(movie)
     const imgurl = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
@@ -34,17 +44,10 @@ fetch(url).then((response) => {
     summary.classList.add('movie-summary');
     summary.appendChild(movieSummary);
     moviediv.appendChild(summary);
-
-
-
-
-
-
-
     document.querySelector('.container').appendChild(moviediv);
   });
 
 
-
-  
 })
+
+}
