@@ -11,17 +11,14 @@ fetch(`https://api.themoviedb.org/3/search/movie?api_key=a876e7500012d962d40cf6b
  movieCard =  movies.results.map(movie => {
     return movie;
   });
-
  document.getElementById("movie-search").onfocus = function() {myFunction()};
-
   function myFunction() {
     document.getElementById("movie-search").style.textAlign = "center";
     location.reload();
+    movieSearch = " ";
 }
-
  console.log(" ")
   movieCard.forEach(movie => {
-    console.log(movie)
     const imgurl = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
     let moviediv = document.createElement('div');
     moviediv.classList.add('movie-container');
@@ -35,7 +32,12 @@ fetch(`https://api.themoviedb.org/3/search/movie?api_key=a876e7500012d962d40cf6b
     //  add image to the card 
     let img = document.createElement('img');
     img.classList.add('poster');
-    img.src = imgurl;
+    if (imgurl == "https://image.tmdb.org/t/p/w500/null"){
+      img.src = "/images/coming-soon.jpg";
+    } else {
+      img.src = imgurl;
+    }
+  
     moviediv.appendChild(img);
 
     // get the film summary 
