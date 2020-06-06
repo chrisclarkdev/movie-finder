@@ -3,7 +3,7 @@
 // testing github
 function getMovies(){
   let movieSearch = document.querySelector('#movie-search').value;
-  console.log(movieSearch);
+  // console.log(movieSearch);
 fetch(`https://api.themoviedb.org/3/search/movie?api_key=a876e7500012d962d40cf6ba7bd19019&language=en-US&query=${movieSearch}&page=1&include_adult=false`).then((response) => {
   return response.json();
 }).catch((err) => alert("I have no idea what's going on!!!"))
@@ -16,10 +16,9 @@ fetch(`https://api.themoviedb.org/3/search/movie?api_key=a876e7500012d962d40cf6b
     document.getElementById("movie-search").style.textAlign = "center";
     location.reload();
     movieSearch = " ";
-}
- console.log(" ")
+  }
   movieCard.forEach(movie => {
-    const imgurl = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
+    console.log(movie)
     let moviediv = document.createElement('div');
     moviediv.classList.add('movie-container');
     // get the film title 
@@ -30,6 +29,7 @@ fetch(`https://api.themoviedb.org/3/search/movie?api_key=a876e7500012d962d40cf6b
     moviediv.appendChild(title);
 
     //  add image to the card 
+    const imgurl = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
     let img = document.createElement('img');
     img.classList.add('poster');
     if (imgurl == "https://image.tmdb.org/t/p/w500/null"){
@@ -37,7 +37,6 @@ fetch(`https://api.themoviedb.org/3/search/movie?api_key=a876e7500012d962d40cf6b
     } else {
       img.src = imgurl;
     }
-  
     moviediv.appendChild(img);
 
     // get the film summary 
@@ -46,6 +45,24 @@ fetch(`https://api.themoviedb.org/3/search/movie?api_key=a876e7500012d962d40cf6b
     summary.classList.add('movie-summary');
     summary.appendChild(movieSummary);
     moviediv.appendChild(summary);
+    document.querySelector('.container').appendChild(moviediv);
+
+    //  release date 
+
+    let releaseDate = document.createTextNode(movie.release_date);
+    let year = releaseDate.data.split('-');
+    let yearRelease = document.createElement('p');
+    yearRelease.classList.add('year');
+    yearRelease.append(`Year released ${year[0]}`);
+    moviediv.appendChild(yearRelease);
+    document.querySelector('.container').appendChild(moviediv);
+
+    // rating 
+    let rating  = document.createTextNode(movie.vote_average * 10);
+    rating_paragragh = document.createElement('p');
+    rating_paragragh.classList.add('ratings');
+    rating_paragragh.appendChild(rating);
+    moviediv.appendChild(rating_paragragh);
     document.querySelector('.container').appendChild(moviediv);
   });
 

@@ -42,8 +42,10 @@
 }
 .btn-small:active {
   box-shadow: 2px 2px 2px #444444;
- 
-
 }
 
+.year {
+  
+  font-weight: 900;
+}
 
