@@ -63,10 +63,12 @@ fetch(`https://api.themoviedb.org/3/search/movie?api_key=a876e7500012d962d40cf6b
     i_class = document.createElement('i');
 
     rating_paragragh.classList.add('ratings');
-    rating_paragragh.classList.add("fas");
-    rating_paragragh.classList.add("fa-star");
+    i_class.classList.add("fas");
+    i_class.classList.add("fa-star");
     rating_paragragh.appendChild(i_class);
-    rating_paragragh.appendChild(rating);
+
+    i_class.appendChild(rating);
+    console.log(rating)
     moviediv.appendChild(rating_paragragh);
     document.querySelector('.container').appendChild(moviediv);
   });

@@ -46,14 +46,12 @@
   box-shadow: 2px 2px 2px #444444;
 }
 
-.year {
-  
+.year { 
   font-weight: 900;
 }
 .ratings::after{
   content: "%";
 }
-
 .fa-star {
   color:rgb(206, 144, 11);
 }
