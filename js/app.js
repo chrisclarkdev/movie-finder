@@ -2,9 +2,12 @@
 
 // testing github
 function getMovies(){
+  // location.reload(true);
   let movieSearch = document.querySelector('#movie-search').value;
+  let moviediv = document.createElement('div');
   // console.log(movieSearch);
-fetch(`https://api.themoviedb.org/3/search/movie?api_key=a876e7500012d962d40cf6ba7bd19019&language=en-US&query=${movieSearch}&page=1&include_adult=false`).then((response) => {
+fetch(`https://api.themoviedb.org/3/search/movie?api_key=a876e7500012d962d40cf6ba7bd19019&language=en-US&query=${movieSearch}&page=1&include_adult=false`)
+.then((response) => {
   return response.json();
 }).catch((err) => alert("I have no idea what's going on!!!"))
 .then((movies) => {
@@ -13,22 +16,24 @@ fetch(`https://api.themoviedb.org/3/search/movie?api_key=a876e7500012d962d40cf6b
   });
  document.getElementById("movie-search").onfocus = function() {myFunction()};
   function myFunction() {
-    document.getElementById("movie-search").style.textAlign = "center";
     location.reload();
-    movieSearch = " ";
   }
+  console.log(moviediv)
+  getMovieCard()
+
+})
+}
+function getMovieCard() {
   movieCard.forEach(movie => {
-    
     let moviediv = document.createElement('div');
+    console.log(moviediv)
     moviediv.classList.add('movie-container');
-    console.log(movie.id)
-    // get the film title 
+    // console.log(movie.id)
     let title = document.createElement('h1');
     let movieTitle = document.createTextNode(movie.title);
-    title.classList.add('movie-title')
-    title.appendChild(movieTitle);
+    // console.log(movieTitle.data);
+    title.classList.add('movie-title');
     moviediv.appendChild(title);
-
     //  add image to the card 
     const imgurl = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
     let img = document.createElement('img');
@@ -62,17 +67,29 @@ fetch(`https://api.themoviedb.org/3/search/movie?api_key=a876e7500012d962d40cf6b
     let rating  = document.createTextNode(movie.vote_average * 10);
     rating_paragragh = document.createElement('p');
     i_class = document.createElement('i');
-
     rating_paragragh.classList.add('ratings');
     i_class.classList.add("fas");
     i_class.classList.add("fa-star");
     rating_paragragh.appendChild(i_class);
-
     i_class.appendChild(rating);
-
     moviediv.appendChild(rating_paragragh);
     document.querySelector('.container').appendChild(moviediv);
-  });
 
-})
+    // add a href to movie title 
+
+    let linkTag = document.createElement('a');
+    linkTag.setAttribute('href', ' movie_page.html');
+    title.appendChild(linkTag);
+    linkTag.innerText = `${movieTitle.data}`
+    document.querySelector('.container').appendChild(moviediv);
+
+
+    // disable button 
+    btn = document.querySelector('#btn');
+    if(moviediv.innerHTML !== ""){
+      btn.setAttribute('disabled', true);
+    } else {
+      btn.setAttribute('disabled', false)
+    }
+  });
 }

@@ -13,20 +13,35 @@
   box-shadow: 3px 3px 5px #fdfdfd;
   transition: opacity 2s;
 }
+.input-container {
+  background: rgb(243, 243, 243);
+  height: 100px;
+  
+  padding: 10px 0;
+}
 .movie-title {
   text-align: center;
+  color: #efefef;
+}
+.movie-title a {
+ color: #242424;
+ text-decoration: none;
 }
 .poster {
   max-width: 100%;
   width: 300px;
   box-shadow: 5px 5px 5px #444444;
-
 }
  input {
-  width: 100%;
+  margin-top: 25px;
+  width: 98%;
   padding: 10px 0;
-  font-size: 1.2em;
-  
+  margin-left: 2px;
+  font-size: 1.4em;
+  text-align: center; 
+ }
+ input:focus{
+   border: 2px solid #075181;
  }
 .btn-small{
   width: 100%;
