@@ -1,5 +1,3 @@
-
-
 // testing github
 function getMovies(){
   // location.reload(true);
@@ -20,7 +18,6 @@ fetch(`https://api.themoviedb.org/3/search/movie?api_key=a876e7500012d962d40cf6b
   }
   console.log(moviediv)
   getMovieCard()
-
 })
 }
 function getMovieCard() {
@@ -92,4 +89,8 @@ function getMovieCard() {
       btn.setAttribute('disabled', false)
     }
   });
+}
+
+function getMovie() {
+  console.log()
 }
