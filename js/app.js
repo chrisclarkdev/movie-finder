@@ -18,9 +18,10 @@ fetch(`https://api.themoviedb.org/3/search/movie?api_key=a876e7500012d962d40cf6b
     movieSearch = " ";
   }
   movieCard.forEach(movie => {
-    console.log(movie)
+    
     let moviediv = document.createElement('div');
     moviediv.classList.add('movie-container');
+    console.log(movie.id)
     // get the film title 
     let title = document.createElement('h1');
     let movieTitle = document.createTextNode(movie.title);
@@ -68,7 +69,7 @@ fetch(`https://api.themoviedb.org/3/search/movie?api_key=a876e7500012d962d40cf6b
     rating_paragragh.appendChild(i_class);
 
     i_class.appendChild(rating);
-    console.log(rating)
+
     moviediv.appendChild(rating_paragragh);
     document.querySelector('.container').appendChild(moviediv);
   });

@@ -51,6 +51,7 @@
 }
 .ratings::after{
   content: "%";
+  color:rgb(206, 144, 11);
 }
 .fa-star {
   color:rgb(206, 144, 11);
