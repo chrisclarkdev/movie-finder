@@ -45,7 +45,6 @@
 .btn-small:active {
   box-shadow: 2px 2px 2px #444444;
 }
-
 .year { 
   font-weight: 900;
 }
@@ -56,5 +55,3 @@
 .fa-star {
   color:rgb(206, 144, 11);
 }
-
-
