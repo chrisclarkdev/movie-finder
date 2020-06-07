@@ -18,7 +18,7 @@ fetch(`https://api.themoviedb.org/3/search/movie?api_key=a876e7500012d962d40cf6b
   }
   console.log(moviediv)
   getMovieCard()
-})
+});
 }
 function getMovieCard() {
   movieCard.forEach(movie => {
