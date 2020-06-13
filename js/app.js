@@ -1,6 +1,6 @@
 
 btn = document.querySelector('#btn');
-console.log(btn)
+
 btn.addEventListener('click', getMovies);
 
 
@@ -30,13 +30,13 @@ fetch(`https://api.themoviedb.org/3/search/movie?api_key=a876e7500012d962d40cf6b
 function getmovieCard() {
   
 
-  movieCard.forEach(movie => {
+  movieCard.forEach( movie => {
+  
     let moviediv = document.createElement('div');
     moviediv.classList.add('movie-container');
     // console.log(movie.id)
     let title = document.createElement('h1');
     let movieTitle = document.createTextNode(movie.title);
-    // console.log(movieTitle.data);
     title.classList.add('movie-title');
     moviediv.appendChild(title);
     //  add image to the card 
@@ -85,11 +85,12 @@ function getmovieCard() {
     let linkTag = document.createElement('a');
     linkTag.setAttribute('href', ' movie_page.html');
     linkTag.setAttribute('onclick', onclick = () =>  {movieSelected(`${movie.id}`)})
+    linkTag.setAttribute('id', `${movie.id}`)
     title.appendChild(linkTag);
     linkTag.innerHTML = `${movieTitle.data} ${movie.id}`;
     document.querySelector('.container').appendChild(moviediv);
 
-
+  
     // disable button 
     btn = document.querySelector('#btn');
     if(moviediv.innerHTML !== ""){
@@ -101,18 +102,18 @@ function getmovieCard() {
 
 }
 
+
 function movieSelected(id) {
+
   sessionStorage.setItem("movieId", id);
   window.location = "movie_page.html";
-  console.log(id)
- 
   return id;
   
 }
+
  function getMovie() {
   let movieId = sessionStorage.getItem("movieId");
-  console.log(movieId)
-    let mDiv = document.createElement('div');
+  let mDiv = document.createElement('div');
 
 
     let moviecontainer = document.querySelector('.movie-container');
