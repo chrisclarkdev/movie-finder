@@ -1,8 +1,14 @@
-// testing github
+
+btn = document.querySelector('#btn');
+console.log(btn)
+btn.addEventListener('click', getMovies);
+
+
+
 function getMovies(){
   // location.reload(true);
   let movieSearch = document.querySelector('#movie-search').value;
-  let moviediv = document.createElement('div');
+  
   // console.log(movieSearch);
 fetch(`https://api.themoviedb.org/3/search/movie?api_key=a876e7500012d962d40cf6ba7bd19019&language=en-US&query=${movieSearch}&page=1&include_adult=false`)
 .then((response) => {
@@ -12,18 +18,20 @@ fetch(`https://api.themoviedb.org/3/search/movie?api_key=a876e7500012d962d40cf6b
  movieCard =  movies.results.map(movie => {
     return movie;
   });
- document.getElementById("movie-search").onfocus = function() {myFunction()};
-  function myFunction() {
+ document.getElementById("movie-search").onfocus = function() {clearDOM()};
+  function clearDOM() {
     location.reload();
   }
-  console.log(moviediv)
-  getMovieCard()
+  getmovieCard()
 });
 }
-function getMovieCard() {
+
+// gets the individual movie card with info
+function getmovieCard() {
+  
+
   movieCard.forEach(movie => {
     let moviediv = document.createElement('div');
-    console.log(moviediv)
     moviediv.classList.add('movie-container');
     // console.log(movie.id)
     let title = document.createElement('h1');
@@ -76,8 +84,9 @@ function getMovieCard() {
 
     let linkTag = document.createElement('a');
     linkTag.setAttribute('href', ' movie_page.html');
+    linkTag.setAttribute('onclick', onclick = () =>  {movieSelected(`${movie.id}`)})
     title.appendChild(linkTag);
-    linkTag.innerText = `${movieTitle.data}`
+    linkTag.innerHTML = `${movieTitle.data} ${movie.id}`;
     document.querySelector('.container').appendChild(moviediv);
 
 
@@ -89,8 +98,37 @@ function getMovieCard() {
       btn.setAttribute('disabled', false)
     }
   });
+
 }
 
-function getMovie() {
-  console.log()
+function movieSelected(id) {
+  sessionStorage.setItem("movieId", id);
+  window.location = "movie_page.html";
+  console.log(id)
+ 
+  return id;
+  
 }
+ function getMovie() {
+  let movieId = sessionStorage.getItem("movieId");
+  console.log(movieId)
+    let mDiv = document.createElement('div');
+
+
+    let moviecontainer = document.querySelector('.movie-container');
+    let ident_paragragh = document.createElement('p');
+    movieIdData = document.createTextNode(movieId);
+
+    ident_paragragh.appendChild(movieIdData)
+    console.log(ident_paragragh)
+    mDiv.appendChild(ident_paragragh);
+    moviecontainer.appendChild(mDiv);
+
+ }
+
+
+  
+
+
+
+

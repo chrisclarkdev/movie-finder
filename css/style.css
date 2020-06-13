@@ -21,16 +21,26 @@
 }
 .movie-title {
   text-align: center;
-  color: #efefef;
+  color: #f70000;
 }
 .movie-title a {
  color: #242424;
  text-decoration: none;
 }
+
+.underlined {
+  color: darkred;
+  text-decoration: underline;
+}
 .poster {
   max-width: 100%;
   width: 300px;
   box-shadow: 5px 5px 5px #444444;
+}
+.movie-summary {
+  padding: 5px;
+  text-align: justify;
+  
 }
  input {
   margin-top: 25px;
