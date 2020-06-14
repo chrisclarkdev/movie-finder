@@ -9,7 +9,7 @@ fetch(`https://api.themoviedb.org/3/search/movie?api_key=a876e7500012d962d40cf6b
  movieCard =  movies.results.map(movieInfo => {
     return movieInfo;
   });
-  
+//   Hello World
 })
 }
 getMovie();
