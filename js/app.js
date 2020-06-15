@@ -28,17 +28,14 @@ fetch(`https://api.themoviedb.org/3/search/movie?api_key=a876e7500012d962d40cf6b
 
 // gets the individual movie card with info
 function getmovieCard() {
-  
-
   movieCard.forEach( movie => {
-  
     let moviediv = document.createElement('div');
     moviediv.classList.add('movie-container');
-    // console.log(movie.id)
     let title = document.createElement('h1');
     let movieTitle = document.createTextNode(movie.title);
     title.classList.add('movie-title');
     moviediv.appendChild(title);
+
     //  add image to the card 
     const imgurl = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
     let img = document.createElement('img');
@@ -79,15 +76,17 @@ function getmovieCard() {
     i_class.appendChild(rating);
     moviediv.appendChild(rating_paragragh);
     document.querySelector('.container').appendChild(moviediv);
-
+  
     // add a href to movie title 
 
     let linkTag = document.createElement('a');
+    linkTag.classList.add('link');
     linkTag.setAttribute('href', ' movie_page.html');
-    linkTag.setAttribute('onclick', onclick = () =>  {movieSelected(`${movie.id}`)})
-    linkTag.setAttribute('id', `${movie.id}`)
+    movieId = movie.id;
+    // console.log(movieId)
     title.appendChild(linkTag);
-    linkTag.innerHTML = `${movieTitle.data} ${movie.id}`;
+    linkTag.innerHTML = `${movieTitle.data} ${movieId}`;
+    linkTag.addEventListener('click', function() {movieSelected(movie)});
     document.querySelector('.container').appendChild(moviediv);
 
   
@@ -104,14 +103,14 @@ function getmovieCard() {
 
 
 function movieSelected(id) {
-
-  sessionStorage.setItem("movieId", id);
+ console.log(id.id)
+  sessionStorage.setItem("movieId", id.id);
   window.location = "movie_page.html";
   return id;
   
 }
 
- function getMovie() {
+ function getMovie(id) {
   let movieId = sessionStorage.getItem("movieId");
   let mDiv = document.createElement('div');
 
@@ -124,7 +123,6 @@ function movieSelected(id) {
     console.log(ident_paragragh)
     mDiv.appendChild(ident_paragragh);
     moviecontainer.appendChild(mDiv);
-
  }
 
 
