@@ -5,7 +5,7 @@ function getMovie(id) {
     return response.json();
   }).catch((err) => alert("I have no idea what's going on!!!"))
   .then((movie) => {
-    
+    console.log(movie)
    
   let movieId = sessionStorage.getItem("movieId");
   console.log(movieId)
