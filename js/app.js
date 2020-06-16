@@ -1,8 +1,7 @@
 
 btn = document.querySelector('#btn');
 
-btn.addEventListener('click', getMovies);
-
+btn.addEventListener('click', getMovies)
 
 
 function getMovies(){
@@ -103,27 +102,16 @@ function getmovieCard() {
 
 
 function movieSelected(id) {
- console.log(id.id)
+//  console.log(id.id)
   sessionStorage.setItem("movieId", id.id);
   window.location = "movie_page.html";
   return id;
   
 }
 
- function getMovie(id) {
-  let movieId = sessionStorage.getItem("movieId");
-  let mDiv = document.createElement('div');
-
-
-    let moviecontainer = document.querySelector('.movie-container');
-    let ident_paragragh = document.createElement('p');
-    movieIdData = document.createTextNode(movieId);
-
-    ident_paragragh.appendChild(movieIdData)
-    console.log(ident_paragragh)
-    mDiv.appendChild(ident_paragragh);
-    moviecontainer.appendChild(mDiv);
- }
+ 
+  
+ 
 
 
   
