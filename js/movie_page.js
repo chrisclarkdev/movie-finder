@@ -9,17 +9,13 @@ function getMovie(id) {
    
   let movieId = sessionStorage.getItem("movieId");
   console.log(movieId)
-  let mDiv = document.createElement('div');
-
-
+  //  the Title h1
+    let mDiv = document.createElement('div');
     let moviecontainer = document.querySelector('.movie-container');
-    let ident_paragragh = document.createElement('p');
+    let movieTitle = document.createElement('h1');
     movieIdData = document.createTextNode(movie.original_title);
-
-    ident_paragragh.appendChild(movieIdData)
-    console.log(ident_paragragh)
-    mDiv.appendChild(ident_paragragh);
+    movieTitle.appendChild(movieIdData)
+    mDiv.appendChild(movieTitle);
     moviecontainer.appendChild(mDiv);
- 
   });
   }
