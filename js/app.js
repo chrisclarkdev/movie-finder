@@ -12,7 +12,7 @@ function getMovies(){
 fetch(`https://api.themoviedb.org/3/search/movie?api_key=a876e7500012d962d40cf6ba7bd19019&language=en-US&query=${movieSearch}&page=1&include_adult=false`)
 .then((response) => {
   return response.json();
-}).catch((err) => alert("I have no idea what's going on!!!"))
+}).catch((err) => alert(err, "I have no idea what's going on!!!"))
 .then((movies) => {
  movieCard =  movies.results.map(movie => {
     return movie;
@@ -47,12 +47,12 @@ function getmovieCard() {
     moviediv.appendChild(img);
 
     // get the film summary 
-    let movieSummary = document.createTextNode(movie.overview);
-    let summary = document.createElement('p');
-    summary.classList.add('movie-summary');
-    summary.appendChild(movieSummary);
-    moviediv.appendChild(summary);
-    document.querySelector('.container').appendChild(moviediv);
+    // let movieSummary = document.createTextNode(movie.overview);
+    // let summary = document.createElement('p');
+    // summary.classList.add('movie-summary');
+    // summary.appendChild(movieSummary);
+    // moviediv.appendChild(summary);
+    // document.querySelector('.container').appendChild(moviediv);
 
     //  release date 
 
@@ -84,7 +84,7 @@ function getmovieCard() {
     movieId = movie.id;
     // console.log(movieId)
     title.appendChild(linkTag);
-    linkTag.innerHTML = `${movieTitle.data} ${movieId}`;
+    linkTag.innerHTML = `${movieTitle.data}`;
     linkTag.addEventListener('click', function() {movieSelected(movie)});
     document.querySelector('.container').appendChild(moviediv);
 
@@ -104,6 +104,7 @@ function getmovieCard() {
 function movieSelected(id) {
 //  console.log(id.id)
   sessionStorage.setItem("movieId", id.id);
+  console.log(id.id)
   window.location = "movie_page.html";
   return id;
   
