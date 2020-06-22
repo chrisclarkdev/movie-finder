@@ -5,13 +5,17 @@
 .container{
   display: grid;
   grid-template-columns: repeat(1, 1fr );
-  gap: 20px;
+  gap: 40px;
+  max-width: 400px;
+  width: 100%;
+  margin: auto;
 }
 .movie-container{
   background: rgb(247, 247, 247);
   padding: 10px;
   box-shadow: 3px 3px 5px #fdfdfd;
   transition: opacity 2s;
+  
 }
 .input-container {
   background: rgb(243, 243, 243);
@@ -38,8 +42,11 @@
 }
 .poster  {
   max-width: 100%;
-  width: 300px;
+  width: 80%;
   box-shadow: 5px 5px 5px #444444;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 .movie_poster{
   width: 100%;
@@ -86,16 +93,76 @@
   content: "%";
   color:rgb(206, 144, 11);
 } */
+.svg-rating{
+  width: 50px;
+}
+
+.percentage {
+  fill: rgb(43, 42, 42);
+  font-family: sans-serif;
+  font-size: 0.5em;
+  text-anchor: middle;
+
+  /* background: rgb(51, 51, 51); */
+}
 
 .rating{
-  height: 50px;
-  background: rgb(51, 51, 51);
+  display: flex;
+  align-items: center;
+  
 }
+
+.user-rating {
+  font-weight: 600;
+  white-space: pre-line;
+}
+
 .fa-star {
   color:rgb(206, 144, 11);
+}
+.running-p {
+  font-weight: 600;
+  /* white-space: pre-line; */
+}
+.fa-clock, .fa-thumbs-up{
+  color:#c09e08;
+  font-size: 3em;
+}
+.fa-link{
+  color: #c09e08;
+  font-size: 2.5em;
+  margin-top: 10px;
+}
+.time-div{
+  display: flex;
+  align-self: center;
 }
 iframe{
   width: 100%;
   max-width: 600px;
   border: none;
 }
+
+.info-div {
+  display: flex;
+  justify-content: space-evenly;
+}
+  /* @media screen and (min-width: 800px){
+  .container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr );
+  }
+   .btn-small {
+    width: 100px;
+    height: 50px;
+    padding: 0px 0;
+    background: rgb(7, 89, 167);
+    background: #000;
+    font-size: 1em;
+    color: #efefef;
+    border: none;
+    box-shadow: 3px 3px 4px #444444;
+    cursor: pointer;
+    
+  }
+} */

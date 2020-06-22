@@ -1,13 +1,10 @@
-
 btn = document.querySelector('#btn');
-
 btn.addEventListener('click', getMovies)
-
 
 function getMovies(){
   // location.reload(true);
   let movieSearch = document.querySelector('#movie-search').value;
-  
+  sessionStorage.setItem("searchResult", movieSearch);
   // console.log(movieSearch);
 fetch(`https://api.themoviedb.org/3/search/movie?api_key=a876e7500012d962d40cf6ba7bd19019&language=en-US&query=${movieSearch}&page=1&include_adult=false`)
 .then((response) => {
@@ -34,6 +31,8 @@ function getmovieCard() {
     let movieTitle = document.createTextNode(movie.title);
     title.classList.add('movie-title');
     moviediv.appendChild(title);
+    let grid = document.querySelector('.movie-grid');
+    grid.appendChild(moviediv);
 
     //  add image to the card 
     const imgurl = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
@@ -45,16 +44,6 @@ function getmovieCard() {
       img.src = imgurl;
     }
     moviediv.appendChild(img);
-
-    // get the film summary 
-    // let movieSummary = document.createTextNode(movie.overview);
-    // let summary = document.createElement('p');
-    // summary.classList.add('movie-summary');
-    // summary.appendChild(movieSummary);
-    // moviediv.appendChild(summary);
-    // document.querySelector('.container').appendChild(moviediv);
-
-    //  release date 
 
     let releaseDate = document.createTextNode(movie.release_date);
     let year = releaseDate.data.split('-');
