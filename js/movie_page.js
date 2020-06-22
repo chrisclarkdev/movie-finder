@@ -6,7 +6,7 @@ function backSearch(){
   // back = sessionStorage.getItem("searchResult");
   window.location.back()
    getMovies();
-//  This doesn't work YET!!!!!
+
 }
 function getMovie(id) {
   let movieId = sessionStorage.getItem("movieId");
