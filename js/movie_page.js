@@ -15,17 +15,18 @@ function getMovie(id) {
     return response.json();
   }).catch((err) => alert("I have no idea what's going on!!!"))
   .then((movie) => {
-    console.log(movie)
+    // console.log(movie)
    
   sessionStorage.getItem("movieId");
   
   //  the Title h1
     let mDiv = document.createElement('div');
+    mDiv.classList.add('movie-box')
     let moviecontainer = document.querySelector('.movie-container');
     let movieTitle = document.createElement('h2');
     movieTitle.classList.add('movie-title');
-    movieIdData = document.createTextNode(movie.original_title);
-    movieTitle.appendChild(movieIdData)
+    movieTitleOriginal = document.createTextNode(movie.original_title);
+    movieTitle.appendChild(movieTitleOriginal)
     mDiv.appendChild(movieTitle);
 
     // release year 
@@ -41,12 +42,15 @@ function getMovie(id) {
     movie_img.classList.add('movie_poster');
     movie_img.src = imgurl;
     mDiv.appendChild(movie_img);
-
+    let movie_summary_div = document.createElement('div');
+    movie_summary_div.classList.add('movie-summary-container')
     let movieSummary = document.createTextNode(movie.overview);
+    // movie_summary_div.appendChild(summary);
     let summary = document.createElement('p');
     summary.classList.add('movie-summary');
     summary.appendChild(movieSummary);
-    mDiv.appendChild(summary);
+    movie_summary_div.appendChild(summary)
+    mDiv.appendChild(movie_summary_div);
     
     // runtime = document.createElement('p')
     // runtimeText = document.createTextNode("runtime: " + movie.runtime + " minutes");
@@ -56,6 +60,7 @@ function getMovie(id) {
     getVideo(movie);
    
     iconDiv(movie);
+    getCast(movie)
   });
   }
   function iconDiv(movie) {
@@ -110,11 +115,13 @@ function getMovie(id) {
     link.classList.add('fas')
     link.classList.add('fa-link')
     let movieURL = document.createElement('a');
-
+    if(movie.homepage == ""){
+      console.log('No website');
+    }else {
     movieURL.setAttribute('href', movie.homepage);
     movieURL.src = movie.homepage
     movieURL.appendChild(link)
-
+    }
     
 
     timeDiv.appendChild(icontime);
@@ -154,7 +161,44 @@ function getMovie(id) {
      frame.src = youtube;
      video_container.appendChild(frame);
      document.body.appendChild(video_container);
-     }
-     
+     } 
    })
+  }
+
+  function getCast(movie) {
+    const cast = `https://api.themoviedb.org/3/movie/${movie.id}/credits?api_key=a876e7500012d962d40cf6ba7bd19019`;
+    fetch(cast)
+    .then((response) => {
+        let castHeader = document.createElement('div');
+        castHeader.classList.add('actorHeader');
+        let castTitle = document.createElement('div');
+        castTitle.classList.add('cast-header');
+        castTitle.innerHTML = "Cast"
+        castHeader.appendChild(castTitle);
+        document.body.appendChild(castHeader);
+      return response.json();
+    }).catch((err) => alert(err))
+      .then((cast) => {
+        cast.cast.forEach(casting => {
+          let actorNames = document.createTextNode(casting.name);
+          let charNames =  document.createTextNode(casting.character);
+
+          let castList = document.createElement('li');
+          castList.appendChild(actorNames);
+          document.querySelector('.actorHeader').appendChild(castList);
+
+          console.log(casting.name, casting.character)
+        });
+       
+      })
+    }
+
+  function myToggle() {
+    var element = document.querySelector('.castHeader');
+    element.classList.toggle("mystyle");
+    if (element.innerHTML === "Cast of Actors"){
+      element.innerHTML = "";
+    }else {
+     element.innerHTML = "Cast of Actors";
+    }
   }

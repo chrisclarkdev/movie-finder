@@ -26,13 +26,12 @@ fetch(`https://api.themoviedb.org/3/search/movie?api_key=a876e7500012d962d40cf6b
 function getmovieCard() {
   movieCard.forEach( movie => {
     let moviediv = document.createElement('div');
-    moviediv.classList.add('movie-container');
+    moviediv.classList.add('movies-container');
     let title = document.createElement('h1');
     let movieTitle = document.createTextNode(movie.title);
     title.classList.add('movie-title');
     moviediv.appendChild(title);
-    let grid = document.querySelector('.movie-grid');
-    grid.appendChild(moviediv);
+    
 
     //  add image to the card 
     const imgurl = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
@@ -49,7 +48,7 @@ function getmovieCard() {
     let year = releaseDate.data.split('-');
     let yearRelease = document.createElement('p');
     yearRelease.classList.add('year');
-    yearRelease.append(`Year released ${year[0]}`);
+    yearRelease.append(`(${year[0]}) `);
     moviediv.appendChild(yearRelease);
     document.querySelector('.container').appendChild(moviediv);
 
@@ -88,6 +87,8 @@ function getmovieCard() {
   });
 
 }
+
+
 
 
 function movieSelected(id) {
