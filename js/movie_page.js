@@ -184,6 +184,7 @@ function getMovie(id) {
           let charNames =  document.createTextNode(casting.character);
 
           let castList = document.createElement('li');
+          castList.classList.add('castList__li')
           castList.appendChild(actorNames);
           document.querySelector('.actorHeader').appendChild(castList);
 
@@ -194,7 +195,7 @@ function getMovie(id) {
     }
 
   function myToggle() {
-    var element = document.querySelector('.castHeader');
+    var element = document.querySelector('#myDIV');
     element.classList.toggle("mystyle");
     if (element.innerHTML === "Cast of Actors"){
       element.innerHTML = "";
