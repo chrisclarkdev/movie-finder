@@ -180,7 +180,7 @@ function getMovie(id) {
     }).catch((err) => alert(err))
       .then((cast) => {
         cast.cast.forEach(casting => {
-          let actorNames = document.createTextNode(casting.name);
+          let actorNames = document.createTextNode(`${casting.name}  : ${casting.character}`);
           let charNames =  document.createTextNode(casting.character);
 
           let castList = document.createElement('li');
