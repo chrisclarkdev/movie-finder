@@ -150,12 +150,15 @@ iframe{
 }
 .castList__li{
   height: 30px;
-  background: rgb(165, 164, 164);
+  
   padding: 5px;
   width: 400px;
   margin: auto ;
   list-style: none;
   /* margin: 10px; */
+}
+.castList__li:nth-child(odd){
+  background: rgb(165, 164, 164);
 }
 
 .mystyle {

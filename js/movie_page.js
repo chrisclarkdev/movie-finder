@@ -170,8 +170,10 @@ function getMovie(id) {
     fetch(cast)
     .then((response) => {
         let castHeader = document.createElement('div');
+        
         castHeader.classList.add('actorHeader');
         let castTitle = document.createElement('div');
+        castTitle.addEventListener('toggle', function() {toggleCast()});
         castTitle.classList.add('cast-header');
         castTitle.innerHTML = "Cast"
         castHeader.appendChild(castTitle);
@@ -194,8 +196,8 @@ function getMovie(id) {
       })
     }
 
-  function myToggle() {
-    var element = document.querySelector('#myDIV');
+  function toggleCast() {
+    var element = document.querySelector('.actorHeader');
     element.classList.toggle("mystyle");
     if (element.innerHTML === "Cast of Actors"){
       element.innerHTML = "";
