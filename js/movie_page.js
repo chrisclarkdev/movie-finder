@@ -173,7 +173,7 @@ function getMovie(id) {
         
         castHeader.classList.add('actorHeader');
         let castTitle = document.createElement('div');
-        castTitle.addEventListener('toggle', function() {toggleCast()});
+        castTitle.addEventListener('click', function() {toggleCast()});
         castTitle.classList.add('cast-header');
         castTitle.innerHTML = "Cast"
         castHeader.appendChild(castTitle);
@@ -183,8 +183,6 @@ function getMovie(id) {
       .then((cast) => {
         cast.cast.forEach(casting => {
           let actorNames = document.createTextNode(`${casting.name}  : ${casting.character}`);
-          let charNames =  document.createTextNode(casting.character);
-
           let castList = document.createElement('li');
           castList.classList.add('castList__li')
           castList.appendChild(actorNames);
@@ -198,10 +196,10 @@ function getMovie(id) {
 
   function toggleCast() {
     var element = document.querySelector('.actorHeader');
-    element.classList.toggle("mystyle");
-    if (element.innerHTML === "Cast of Actors"){
-      element.innerHTML = "";
-    }else {
-     element.innerHTML = "Cast of Actors";
-    }
+    element.classList.toggle("myStyle");
+    // if (element.classList !== "long" ){
+    //   element.classList.add('long');
+    // }else {
+    //  element.classList.remove('long');
+    // }
   }
