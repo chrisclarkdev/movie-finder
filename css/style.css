@@ -169,7 +169,10 @@ iframe{
 .myStyle {
   height: 50px;
   overflow: hidden;
-
+  cursor: pointer;
+}
+.actorHeader{
+  cursor: pointer;
 }
 .cast-header{
   width: 100%;
