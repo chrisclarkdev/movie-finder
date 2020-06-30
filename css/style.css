@@ -1,13 +1,13 @@
 * {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 /* container grid  */
-.container{
+.container {
   display: grid;
-  grid-template-columns: repeat(1, 300px );
+  grid-template-columns: repeat(1, 300px);
   gap: 20px;
 }
-.movie-container{
+.movie-container {
   background: rgb(223, 223, 223);
   padding: 10px;
   border-radius: 12px;
@@ -17,15 +17,13 @@
 .poster {
   max-width: 100%;
   width: 300px;
-
 }
- input {
+input {
   width: 100%;
   padding: 10px 0;
   font-size: 1.2em;
-  border-radius: 12px;
- }
-.btn-small{
+}
+.btn-small {
   width: 100%;
   padding: 10px 0;
   background: rgb(89, 226, 9);
@@ -33,15 +31,10 @@
   border: none;
   box-shadow: 5px 5px 10px #444444;
   cursor: pointer;
-  border-radius: 12px;
 }
 .btn-small:hover {
   background: rgba(122, 230, 60, 0.979);
 }
 .btn-small:active {
   box-shadow: 2px 2px 2px #444444;
- 
-
 }
-
-
