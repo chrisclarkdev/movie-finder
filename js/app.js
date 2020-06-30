@@ -55,3 +55,11 @@ function getMovies() {
       });
     });
 }
+
+function movieSelected(id) {
+  //  console.log(id.id)
+  sessionStorage.setItem("movieId", id.id);
+  console.log(id.id);
+  window.location = "movie_page.html";
+  return id;
+}

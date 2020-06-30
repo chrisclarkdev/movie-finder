@@ -10,30 +10,67 @@
 .movie-container {
   background: rgb(223, 223, 223);
   padding: 10px;
-  border-radius: 12px;
-  box-shadow: 3px 3px 5px #efefef;
+  box-shadow: 3px 3px 5px #fdfdfd;
+  transition: opacity 2s;
+}
+.input-container {
+  background: rgb(243, 243, 243);
+  height: 100px;
+
+  padding: 10px 0;
+}
+.movie-title {
+  text-align: center;
+  color: #c09e08;
+  text-shadow: 1px 1px #1b1b1b;
+  font-size: 2.9em;
+}
+.movie-title a {
+  color: #c09e08;
+  text-decoration: none;
+  text-shadow: 1px 1px #1b1b1b;
 }
 
+.underlined {
+  color: darkred;
+  text-decoration: underline;
+}
 .poster {
   max-width: 100%;
   width: 300px;
 }
 input {
   width: 100%;
+  max-width: 400px;
+  box-shadow: 5px 5px 5px #444444;
+}
+.movie-summary {
+  padding: 5px;
+  text-align: justify;
+}
+input {
+  margin-top: 25px;
+  width: 98%;
   padding: 10px 0;
   font-size: 1.2em;
 }
 .btn-small {
   width: 100%;
   padding: 10px 0;
-  background: rgb(89, 226, 9);
+  background: rgb(7, 89, 167);
   font-size: 2em;
+  color: #efefef;
   border: none;
-  box-shadow: 5px 5px 10px #444444;
+  box-shadow: 3px 3px 4px #444444;
   cursor: pointer;
 }
+
+/* .actorHeader{
+  height: 1300px;
+  overflow: hidden;
+} */
 .btn-small:hover {
-  background: rgba(122, 230, 60, 0.979);
+  background: rgb(36, 100, 160);
 }
 .btn-small:active {
   box-shadow: 2px 2px 2px #444444;
