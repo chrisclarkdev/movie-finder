@@ -3,11 +3,14 @@ homelink.src = 'index.html';
 document.body.appendChild(homelink);
 
 function backSearch(){
-  // back = sessionStorage.getItem("searchResult");
-  window.location.back()
-   getMovies();
+  back = sessionStorage.getItem("searchResult");
+  window.location = "index.html";
+  //  console.log()
+   fetchMovies()
 
 }
+
+
 function getMovie(id) {
   let movieId = sessionStorage.getItem("movieId");
   fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=a876e7500012d962d40cf6ba7bd19019&language=en-US`)
@@ -15,7 +18,7 @@ function getMovie(id) {
     return response.json();
   }).catch((err) => alert("I have no idea what's going on!!!"))
   .then((movie) => {
-    // console.log(movie)
+    console.log(movie)
    
   sessionStorage.getItem("movieId");
   
@@ -79,7 +82,12 @@ function getMovie(id) {
     path.style.stroke = '#c09e08';
     path.style.strokeWidth =  '4px';
     const ratingPer = movie.vote_average * 10;
-    path.setAttribute('stroke-dasharray', `${ratingPer}, 100`);
+    if(ratingPer === 0 ){
+      path.setAttribute('stroke-dasharray', `100, 100`)
+    }else {
+      path.setAttribute('stroke-dasharray', `${ratingPer}, 100`)
+    }
+    ;
     //  created text 
     text = document.createElementNS('http://www.w3.org/2000/svg',  'text')
     text.setAttribute('x', '18');
@@ -186,17 +194,21 @@ function getMovie(id) {
           let castList = document.createElement('li');
           castList.classList.add('castList__li')
           castList.appendChild(actorNames);
-          document.querySelector('.actorHeader').appendChild(castList);
+          let element = document.querySelector('.actorHeader');
+          element.appendChild(castList);
+          element.setAttribute('aria-hidden', "true")
 
-          console.log(casting.name, casting.character)
+          // console.log(casting)
         });
        
       })
     }
-
+  // alert(history.length)
   function toggleCast() {
     var element = document.querySelector('.actorHeader');
-    element.classList.toggle("myStyle");
+    let hidden = element.getAttribute('aria-hidden');
+    hidden === 'true' ? 'false' : 'true';
+    element.classList.toggle("cast-reveal");
     // if (element.classList !== "long" ){
     //   element.classList.add('long');
     // }else {

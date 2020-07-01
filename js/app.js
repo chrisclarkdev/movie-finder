@@ -3,10 +3,12 @@ btn.addEventListener('click', getMovies)
 
 function getMovies(){
   // location.reload(true);
-  let movieSearch = document.querySelector('#movie-search').value;
-  sessionStorage.setItem("searchResult", movieSearch);
+  let movieSearch = document.querySelector('#movie-search');
+  let movieValue = movieSearch.value;
+  console.log(movieValue)
+  sessionStorage.setItem("searchResult", movieValue);
   // console.log(movieSearch);
-fetch(`https://api.themoviedb.org/3/search/movie?api_key=a876e7500012d962d40cf6ba7bd19019&language=en-US&query=${movieSearch}&page=1&include_adult=false`)
+fetch(`https://api.themoviedb.org/3/search/movie?api_key=a876e7500012d962d40cf6ba7bd19019&language=en-US&query=${movieValue}&page=1&include_adult=false`)
 .then((response) => {
   return response.json();
 }).catch((err) => alert(err, "I have no idea what's going on!!!"))
@@ -17,11 +19,20 @@ fetch(`https://api.themoviedb.org/3/search/movie?api_key=a876e7500012d962d40cf6b
  document.getElementById("movie-search").onfocus = function() {clearDOM()};
   function clearDOM() {
     location.reload();
+
   }
   getmovieCard()
 });
 }
+function fetchMovies(ev) {
+  e.preventDefault();
+  console.log("Hello")
+  window.location = "index.html";
+  movieValue = sessionStorage.getItem("searchResult");
+  getmovieCard();
 
+  
+}
 // gets the individual movie card with info
 function getmovieCard() {
   movieCard.forEach( movie => {
@@ -90,7 +101,6 @@ function getmovieCard() {
 
 
 
-
 function movieSelected(id) {
 //  console.log(id.id)
   sessionStorage.setItem("movieId", id.id);
@@ -99,6 +109,8 @@ function movieSelected(id) {
   return id;
   
 }
+
+
 
  
   
