@@ -1,22 +1,21 @@
 * {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 .container{
   max-width: 400px;
   width: 100%;
   margin: auto;
 }
-.movie-container{
-  background: rgb(247, 247, 247);
+.movie-container {
+  background: rgb(223, 223, 223);
   padding: 10px;
   box-shadow: 3px 3px 5px #fdfdfd;
   transition: opacity 2s;
-  
 }
 .input-container {
   background: rgb(243, 243, 243);
   height: 100px;
-  
+
   padding: 10px 0;
 }
 .movie-title {
@@ -26,25 +25,20 @@
   font-size: 2.9em;
 }
 .movie-title a {
- color: #c09e08;
- text-decoration: none;
- text-shadow: 1px 1px #1b1b1b;
+  color: #c09e08;
+  text-decoration: none;
+  text-shadow: 1px 1px #1b1b1b;
 }
 
 .underlined {
   color: darkred;
   text-decoration: underline;
-  
 }
-.poster  {
+.poster {
   max-width: 100%;
-  width: 80%;
-  box-shadow: 5px 5px 5px #444444;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+  width: 300px;
 }
-.movie_poster{
+input {
   width: 100%;
   max-width: 400px;
   box-shadow: 5px 5px 5px #444444;
@@ -52,20 +46,14 @@
 .movie-summary {
   padding: 5px;
   text-align: justify;
-  
 }
- input {
+input {
   margin-top: 25px;
   width: 98%;
   padding: 10px 0;
-  margin-left: 2px;
-  font-size: 1.4em;
-  text-align: center; 
- }
- input:focus{
-   border: 2px solid #075181;
- }
-.btn-small{
+  font-size: 1.2em;
+}
+.btn-small {
   width: 100%;
   padding: 10px 0;
   background: rgb(7, 89, 167);
@@ -74,7 +62,6 @@
   border: none;
   box-shadow: 3px 3px 4px #444444;
   cursor: pointer;
-  
 }
 
 .btn-small:hover {
