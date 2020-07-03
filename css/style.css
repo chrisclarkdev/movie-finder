@@ -139,6 +139,7 @@ iframe{
   margin: auto ;
   list-style: none;
   border-bottom: 2px solid rgb(172, 172, 172);
+  /* display: none; */
   
 }
 
@@ -147,6 +148,7 @@ iframe{
   height: 50px;
   overflow: hidden;
   cursor: pointer;
+  /* display: none; */
 
 }
 .cast-header{
@@ -156,6 +158,11 @@ iframe{
   text-align: center;
   color: #efefef;
   font-size: 2em;
+}
+
+.movie_poster{
+  box-shadow: black 3px 3px 5px;
+  width: 50%;
 }
 .cast-header:hover {
   background: rgba(192, 158, 8, 0.815);
@@ -168,12 +175,12 @@ iframe{
     .container{
       max-width: 750px;
         display: grid;
-        grid-template-columns: repeat(3, 245px);
+        grid-template-columns: repeat(2, 1fr);
         gap: 5px;
         margin-top: 40px;
     }
     .movie-title {
-      font-size: 1.1em;
+      font-size: 1.5em;
     }
 
   .back-button {
@@ -192,6 +199,12 @@ iframe{
   .back-button:visited {
     color: #efefef;
   }
+  .poster {
+    width: 100%;
+   }
+   .movies-container{
+    padding: 10px;
+  }
 }
 @media screen and (min-width: 1050px){
   .container {
@@ -199,8 +212,14 @@ iframe{
     grid-template-columns: repeat(3, 1fr);
   }
   .movie-title {
-      
     font-size: 1.8em;
   }
+  .btn-small{
+    width: 200px;
+    height: 50px;
+    margin-top: 30px;
+  }
+  
+  
 
 }

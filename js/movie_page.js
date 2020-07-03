@@ -21,6 +21,12 @@ function getMovie(id) {
     console.log(movie)
    
   sessionStorage.getItem("movieId");
+  // release year 
+    let releaseDate = document.createTextNode(movie.release_date);
+    let year = releaseDate.data.split('-');
+    let yearRelease = document.createElement('p');
+    yearRelease.classList.add('year');
+    year = yearRelease.append(`Year released ${year[0]}`);
   
   //  the Title h1
     let mDiv = document.createElement('div');
@@ -28,16 +34,11 @@ function getMovie(id) {
     let moviecontainer = document.querySelector('.movie-container');
     let movieTitle = document.createElement('h2');
     movieTitle.classList.add('movie-title');
-    movieTitleOriginal = document.createTextNode(movie.original_title);
+    movieTitleOriginal = document.createTextNode(movie.original_title );
     movieTitle.appendChild(movieTitleOriginal)
     mDiv.appendChild(movieTitle);
 
-    // release year 
-    let releaseDate = document.createTextNode(movie.release_date);
-    let year = releaseDate.data.split('-');
-    let yearRelease = document.createElement('p');
-    yearRelease.classList.add('year');
-    year =yearRelease.append(`Year released ${year[0]}`);
+    
    
     
     const imgurl = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
@@ -95,7 +96,7 @@ function getMovie(id) {
     text.innerHTML = ratingPer + '%' ;
     text.classList.add('percentage');
     text.style.fontFamily = 'Verdana';
-        text.style.fontSize = '35';
+    // text.style.fontSize = '35';
     thumbsup = document.createElement('p');
     thumbsup.classList.add('user-rating');
     
@@ -205,13 +206,12 @@ function getMovie(id) {
     }
   // alert(history.length)
   function toggleCast() {
-    var element = document.querySelector('.actorHeader');
-    let hidden = element.getAttribute('aria-hidden');
-    hidden === 'true' ? 'false' : 'true';
+    let element = document.querySelector('.actorHeader');
+    let castName = document.querySelector('.castList_li');
     element.classList.toggle("cast-reveal");
-    // if (element.classList !== "long" ){
-    //   element.classList.add('long');
-    // }else {
-    //  element.classList.remove('long');
-    // }
+    if (castName.style.display === "none" ){
+      castName.style.display = "block" 
+    }else {
+      castName.style.display = "none";
+    }
   }
