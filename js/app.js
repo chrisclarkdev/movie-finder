@@ -25,7 +25,7 @@ fetch(`https://api.themoviedb.org/3/search/movie?api_key=a876e7500012d962d40cf6b
 });
 }
 function fetchMovies(ev) {
-  e.preventDefault();
+  ev.preventDefault();
   console.log("Hello")
   window.location = "index.html";
   movieValue = sessionStorage.getItem("searchResult");
@@ -83,7 +83,10 @@ function getmovieCard() {
     movieId = movie.id;
     // console.log(movieId)
     title.appendChild(linkTag);
-    linkTag.innerHTML = `${movieTitle.data}`;
+
+    linkTag.innerHTML = movieTitle.data.length < 22 ? `${movieTitle.data}` : `${movieTitle.data.fontsize(4.5)}`;
+    // linkTag.innerHTML = window.innerWidth < 376 ? `${movieTitle.data}` : `${movieTitle.data.fontsize(7.5)}`
+    console.log(movieTitle.data.length)
     linkTag.addEventListener('click', function() {movieSelected(movie)});
     document.querySelector('.container').appendChild(moviediv);
 

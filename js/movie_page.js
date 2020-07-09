@@ -18,8 +18,6 @@ function getMovie(id) {
     return response.json();
   }).catch((err) => alert("I have no idea what's going on!!!"))
   .then((movie) => {
-    console.log(movie)
-   
   sessionStorage.getItem("movieId");
   // release year 
     let releaseDate = document.createTextNode(movie.release_date);
@@ -33,10 +31,11 @@ function getMovie(id) {
     mDiv.classList.add('movie-box')
     let moviecontainer = document.querySelector('.movie-container');
     let movieTitle = document.createElement('h2');
-    movieTitle.classList.add('movie-title');
-    movieTitleOriginal = document.createTextNode(movie.original_title );
-    movieTitle.appendChild(movieTitleOriginal)
-    mDiv.appendChild(movieTitle);
+    
+    // movieTitle.classList.add('movie-title');
+    // movieTitleOriginal = document.createTextNode(movie.original_title );
+    // movieTitle.appendChild(movieTitleOriginal)
+    // mDiv.appendChild(movieTitle);
 
     
    
@@ -165,8 +164,9 @@ function getMovie(id) {
      const video_container = document.createElement('div');
      const frame = document.createElement('IFRAME');
      video_container.classList.add('youtube')
-     frame.setAttribute('width', '400px');
-     frame.setAttribute('height', '300px');
+     youtubeWidth = window.innerWidth;
+     frame.setAttribute('width', youtubeWidth-30 +'px');
+     frame.setAttribute('height', youtubeWidth/1.77777 +'px');
      frame.src = youtube;
      video_container.appendChild(frame);
      document.body.appendChild(video_container);
@@ -177,6 +177,7 @@ function getMovie(id) {
   function getCast(movie) {
     const cast = `https://api.themoviedb.org/3/movie/${movie.id}/credits?api_key=a876e7500012d962d40cf6ba7bd19019`;
     fetch(cast)
+    
     .then((response) => {
         let castHeader = document.createElement('div');
         
@@ -187,9 +188,12 @@ function getMovie(id) {
         castTitle.innerHTML = "Cast"
         castHeader.appendChild(castTitle);
         document.body.appendChild(castHeader);
-      return response.json();
-    }).catch((err) => alert(err))
-      .then((cast) => {
+          return response.json();
+        }).catch((err) => alert(err))
+          .then((cast) => {
+        // cast.crew.map(crews => {
+        //   console.table(crews.job, crews.name)
+        // })
         cast.cast.forEach(casting => {
           let actorNames = document.createTextNode(`${casting.name}  : ${casting.character}`);
           let castList = document.createElement('li');
@@ -209,9 +213,9 @@ function getMovie(id) {
     let element = document.querySelector('.actorHeader');
     let castName = document.querySelector('.castList_li');
     element.classList.toggle("cast-reveal");
-    if (castName.style.display === "none" ){
-      castName.style.display = "block" 
-    }else {
-      castName.style.display = "none";
-    }
+    // if (castName.style.display == "none" ){
+    //   castName.style.display = "block" 
+    // }else {
+    //   castName.style.display = "none";
+    // }
   }
