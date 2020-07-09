@@ -1,6 +1,5 @@
 btn = document.querySelector('#btn');
 btn.addEventListener('click', getMovies)
-// hello World
 
 function getMovies(){
   // location.reload(true);
