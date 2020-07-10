@@ -165,7 +165,7 @@ function getMovie(id) {
      const frame = document.createElement('IFRAME');
      video_container.classList.add('youtube')
      youtubeWidth = window.innerWidth;
-     frame.setAttribute('width', youtubeWidth-30 +'px');
+     frame.setAttribute('width', youtubeWidth - 15 +'px');
      frame.setAttribute('height', youtubeWidth/1.77777 +'px');
      frame.src = youtube;
      video_container.appendChild(frame);

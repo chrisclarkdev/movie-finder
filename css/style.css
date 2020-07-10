@@ -184,8 +184,12 @@ input {
   width: 80%;
   max-width: 400px;
   /* transform: skewY(20deg); */
-
-
+}
+.footer-text {
+  text-align: center;
+}
+a{
+  text-align: center;
 }
 .cast-header:hover {
   background: rgba(192, 158, 8, 0.815);
