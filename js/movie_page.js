@@ -165,8 +165,14 @@ function getMovie(id) {
      const frame = document.createElement('IFRAME');
      video_container.classList.add('youtube')
      youtubeWidth = window.innerWidth;
-     frame.setAttribute('width', youtubeWidth - 15 +'px');
-     frame.setAttribute('height', youtubeWidth/1.77777 +'px');
+     if (innerWidth > 1000 ){
+      frame.setAttribute('width', youtubeWidth/2 +'px');
+      frame.setAttribute('height', youtubeWidth/3 +'px');
+     }else {
+      frame.setAttribute('width', youtubeWidth +'px');
+      frame.setAttribute('height', youtubeWidth/1.77777 +'px');
+     }
+     
      frame.src = youtube;
      video_container.appendChild(frame);
      document.body.appendChild(video_container);
