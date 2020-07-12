@@ -169,7 +169,7 @@ function getMovie(id) {
       frame.setAttribute('width', youtubeWidth/2 +'px');
       frame.setAttribute('height', youtubeWidth/3 +'px');
      }else {
-      frame.setAttribute('width', youtubeWidth +'px');
+      frame.setAttribute('width', `${youtubeWidth - 38}px`);
       frame.setAttribute('height', youtubeWidth/1.77777 +'px');
      }
      
